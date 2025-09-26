@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibraryApiSqlServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8882c25d9c69202e5dc79374be57bc04cd77a4c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+495075dab4eadd9fa62cb55d3672f0b9d4059f73")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibraryApiSqlServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibraryApiSqlServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

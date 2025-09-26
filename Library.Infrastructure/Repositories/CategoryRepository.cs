@@ -1,48 +1,55 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Library.Application.Interfaces;
 using Library.Domain.Entities;
 using Library.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Infrastructure.Repositories;
-
-public class CategoryRepository : ICategoryRepository
+namespace Library.Infrastructure.Repositories
 {
-    private readonly LibraryDbContext _context;
-
-    public CategoryRepository(LibraryDbContext context)
+    public class CategoryRepository : ICategoryRepository
     {
-        _context = context;
-    }
+        private readonly LibraryDbContext _context;
 
-    public async Task<IEnumerable<Categories>> GetAllAsync()
-    {
-        return await _context.Categories.ToListAsync();
-    }
-
-    public async Task<Categories> GetByIdAsync(int id)
-    {
-        return await _context.Categories.FindAsync(id);
-    }
-
-    public async Task AddAsync(Categories category)
-    {
-        await _context.Categories.AddAsync(category);
-        await _context.SaveChangesAsync();
-    }
-
-    public async Task UpdateAsync(Categories category)
-    {
-        _context.Categories.Update(category);
-        await _context.SaveChangesAsync();
-    }
-
-    public async Task DeleteAsync(int id)
-    {
-        var category = await _context.Categories.FindAsync(id);
-        if (category != null)
+        public CategoryRepository(LibraryDbContext context)
         {
-            _context.Categories.Remove(category);
+            _context = context;
+        }
+
+        public async Task<IEnumerable<Categories>> GetAllAsync() =>
+            await _context.Categories.ToListAsync();
+
+        public async Task<Categories?> GetByIdAsync(int id) =>
+            await _context.Categories.FindAsync(id);
+
+        public async Task<Categories> AddAsync(Categories category)
+        {
+            await _context.Categories.AddAsync(category);
             await _context.SaveChangesAsync();
+            return category;
+        }
+
+        public async Task<Categories?> UpdateAsync(Categories category)
+        {
+            var existing = await _context.Categories.FindAsync(category.category_id);
+            if (existing == null) return null;
+
+            // Manually update each property
+            existing.category_name = category.category_name;            
+            existing.active = category.active;
+
+            await _context.SaveChangesAsync();
+            return existing; 
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var existing = await _context.Categories.FindAsync(id);
+            if (existing == null) return false;
+
+            _context.Categories.Remove(existing);
+            await _context.SaveChangesAsync();
+            return true; 
         }
     }
 }

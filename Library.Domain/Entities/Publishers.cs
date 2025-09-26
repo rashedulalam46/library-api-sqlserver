@@ -4,6 +4,7 @@ namespace Library.Domain.Entities;
 public class Publishers
 {
 	[Key]
+	public int publisher_id { get; set; }
 	public string publisher_name { get; set; }
 	public string address { get; set; }
 	public string phone { get; set; }

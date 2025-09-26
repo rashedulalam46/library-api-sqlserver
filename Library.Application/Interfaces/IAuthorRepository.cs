@@ -6,9 +6,10 @@ namespace Library.Application.Interfaces;
 
 public interface IAuthorRepository
 {
-    Task<Authors> GetByIdAsync(int id);
+    Task<Authors?> GetByIdAsync(int id);
     Task<IEnumerable<Authors>> GetAllAsync();
-    Task AddAsync(Authors author);
-    Task UpdateAsync(Authors author);
-    Task DeleteAsync(int id);
+    Task<Authors> AddAsync(Authors author);
+    Task<Authors?> UpdateAsync(Authors author);
+    Task<bool> DeleteAsync(int id);
 }
+
