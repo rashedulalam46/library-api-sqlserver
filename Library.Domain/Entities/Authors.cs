@@ -1,8 +1,11 @@
 
-namespace Library.Domain;
+using System.ComponentModel.DataAnnotations;
 
-public class Author
+namespace Library.Domain.Entities;
+
+public class Authors
 {
+    [Key]
     public int author_id { get; set; }
 
     public string author_name { get; set; }

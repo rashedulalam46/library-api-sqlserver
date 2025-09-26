@@ -1,7 +1,10 @@
-namespace Library.Domain;
+using System.ComponentModel.DataAnnotations;
+
+namespace Library.Domain.Entities;
 
 public class Books
 {
+	[Key]
 	public int book_id { get; set; }
 	public string title { get; set; }
 	public string description { get; set; }

@@ -1,6 +1,7 @@
+using Library.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Infrastructure;
+namespace Library.Infrastructure.Data;
 
 public class LibraryDbContext : DbContext
 {
@@ -12,6 +13,11 @@ public class LibraryDbContext : DbContext
     // Example DbSet properties
     // public DbSet<Book> Books { get; set; }
     // public DbSet<Author> Authors { get; set; }
+
+    public DbSet<Books> Books { get; set; }
+    public DbSet<Authors> Authors { get; set; }
+    public DbSet<Publishers> Publishers { get; set; }
+    public DbSet<Categories> Categories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,6 +1,9 @@
-namespace Library.Domain;
+using System.ComponentModel.DataAnnotations;
+
+namespace Library.Domain.Entities;
 public class Publishers
-{	public int publisher_id { get; set; }
+{
+	[Key]
 	public string publisher_name { get; set; }
 	public string address { get; set; }
 	public string phone { get; set; }
