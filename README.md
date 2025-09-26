@@ -9,7 +9,7 @@ This project is structured with clean architecture (Domain, Application, Infrast
 ```
 LibraryApiSqlServer/
 ├── Library.Api/ # API / presentation layer (controllers, endpoints)
-├── Library.Application/ # Application logic (use cases, services, DTOs)
+├── Library.Application/ # Application logic (services, interfaces, DTOs)
 ├── Library.Domain/ # Domain / core (entities, interfaces)
 ├── Library.Infrastructure/ # Data access, repository implementations, EF Core, DB context
 ├── LibraryApiSqlServer.sln
@@ -75,3 +75,43 @@ dotnet run --project Library.Api
 ```
 
 The default launch URL might be https://localhost:5001 (or as configured). Use a tool like Postman, curl, or HTTPie to test the endpoints.
+
+🛣️ API Endpoints (Examples)
+
+These are sample endpoints — adjust according to actual implementation.
+| Method | URL             | Description             |
+| ------ | --------------- | ----------------------- |
+| GET    | /api/books      | Get all books           |
+| GET    | /api/books/{id} | Get book by ID          |
+| POST   | /api/books      | Create a new book       |
+| PUT    | /api/books/{id} | Update an existing book |
+| DELETE | /api/books/{id} | Delete a book by ID     |
+
+✅ Features & Highlights
+
+- Clean / layered architecture (Domain, Application, Infrastructure)
+- Dependency Injection
+- EF Core as data access layer
+- DTOs / ViewModels for input/output
+- Configuration-based connection strings
+- Exception handling, validation, etc. (if implemented)
+
+ ## 📦 Deployment
+
+When you’re ready to deploy:
+
+- Configure the production connection string in environment variables.
+- Publish the project:
+
+```
+dotnet publish --configuration Release
+```
+
+- Deploy the resulting output to your server / host / container.
+- Ensure the database is accessible and migrations are applied.
+
+##  📄 License & Contribution
+
+- Feel free to fork or suggest changes via pull requests.
+- Add a LICENSE file if you have specific usage terms.
+- Please document style, code conventions, etc., in a CONTRIBUTING.md.
