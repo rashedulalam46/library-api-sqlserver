@@ -1,6 +1,7 @@
-using Library.Infrastructure;
-using Library.Domain;
-namespace Library.Services;
+using Library.Application.Interfaces;
+using Library.Domain.Entities;
+
+namespace Library.Application.Services;
 
 public class BookService
 {
@@ -13,3 +14,4 @@ public class BookService
     public Task<Books?> UpdateBookAsync(Books book) => _repo.UpdateAsync(book);
     public Task<bool> DeleteBookAsync(int id) => _repo.DeleteAsync(id);
 }
+
