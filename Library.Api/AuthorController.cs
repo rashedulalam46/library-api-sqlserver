@@ -1,67 +1,66 @@
+using Library.Application.Services;
+using Library.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
-namespace Library.Api.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class AuthorController : ControllerBase
+namespace Library.API.Controllers
 {
-    // Dummy in-memory data store
-    private static readonly List<Author> Authors = new List<Author>
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthorsController : ControllerBase
     {
-        new Author { Id = 1, Name = "Jane Austen" },
-        new Author { Id = 2, Name = "Mark Twain" }
-    };
+        private readonly AuthorService _service;
 
-    [HttpGet]
-    public ActionResult<IEnumerable<Author>> GetAll()
-    {
-        return Ok(Authors);
+        public AuthorsController(AuthorService service)
+        {
+            _service = service;
+        }
+
+        // GET: api/authors
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Authors>>> GetAll()
+        {
+            var authors = await _service.GetAuthorsAsync();
+            return Ok(authors);
+        }
+
+        // GET: api/authors/{id}
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Authors>> GetById(int id)
+        {
+            var author = await _service.GetAuthorAsync(id);
+            if (author is null) return NotFound();
+            return Ok(author);
+        }
+
+        // POST: api/authors
+        [HttpPost]
+        public async Task<ActionResult<Authors>> Create([FromBody] Authors author)
+        {
+            var createdAuthor = await _service.AddAuthorAsync(author);
+            return CreatedAtAction(nameof(GetById), new { id = createdAuthor.author_id }, createdAuthor);
+        }
+
+        // PUT: api/authors/{id}
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult<Authors>> Update(int id, [FromBody] Authors author)
+        {
+            if (id != author.author_id)
+                return BadRequest("Author ID mismatch");
+
+            var updatedAuthor = await _service.UpdateAuthorAsync(author);
+            if (updatedAuthor is null) return NotFound();
+
+            return Ok(updatedAuthor);
+        }
+
+        // DELETE: api/authors/{id}
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var deleted = await _service.DeleteAuthorAsync(id);
+            if (!deleted) return NotFound();
+
+            return NoContent();
+        }
     }
-
-    [HttpGet("{id}")]
-    public ActionResult<Author> GetById(int id)
-    {
-        var author = Authors.Find(a => a.Id == id);
-        if (author == null)
-            return NotFound();
-        return Ok(author);
-    }
-
-    [HttpPost]
-    public ActionResult<Author> Create(Author author)
-    {
-        author.Id = Authors.Count + 1;
-        Authors.Add(author);
-        return CreatedAtAction(nameof(GetById), new { id = author.Id }, author);
-    }
-
-    [HttpPut("{id}")]
-    public IActionResult Update(int id, Author updatedAuthor)
-    {
-        var author = Authors.Find(a => a.Id == id);
-        if (author == null)
-            return NotFound();
-
-        author.Name = updatedAuthor.Name;
-        return NoContent();
-    }
-
-    [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
-    {
-        var author = Authors.Find(a => a.Id == id);
-        if (author == null)
-            return NotFound();
-
-        Authors.Remove(author);
-        return NoContent();
-    }
-}
-
-public class Author
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
 }
