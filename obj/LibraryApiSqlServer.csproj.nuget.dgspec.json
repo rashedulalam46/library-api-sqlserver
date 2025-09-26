@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer\\LibraryApiSqlServer.csproj": {}
+    "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer.csproj": {}
   },
   "projects": {
-    "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer\\LibraryApiSqlServer.csproj": {
+    "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer\\LibraryApiSqlServer.csproj",
+        "projectUniqueName": "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer.csproj",
         "projectName": "LibraryApiSqlServer",
-        "projectPath": "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer\\LibraryApiSqlServer.csproj",
+        "projectPath": "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer.csproj",
         "packagesPath": "C:\\Users\\Rashed\\.nuget\\packages\\",
-        "outputPath": "E:\\GitHub\\LibraryApiSqlServer\\LibraryApiSqlServer\\obj\\",
+        "outputPath": "E:\\GitHub\\LibraryApiSqlServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rashed\\AppData\\Roaming\\NuGet\\NuGet.Config"
