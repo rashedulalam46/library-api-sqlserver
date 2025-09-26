@@ -8,10 +8,12 @@ This project is structured with clean architecture (Domain, Application, Infrast
 ## 📁 Repository Structure
 ```
 LibraryApiSqlServer/
-├── Library.Api/ # API / presentation layer (controllers, endpoints)
-├── Library.Application/ # Application logic (services, interfaces, DTOs)
-├── Library.Domain/ # Domain / core (entities, interfaces)
-├── Library.Infrastructure/ # Data access, repository implementations, EF Core, DB context
+├── Library.Api/                   # API / presentation layer (controllers, endpoints)
+├── Library.Application/           # Application logic
+│   ├── Services/                  # Business services / use cases
+│   └── DTOs/                      # Data Transfer Objects, ViewModels
+├── Library.Domain/                # Domain / core (entities, interfaces)
+├── Library.Infrastructure/        # Data access, repository implementations, EF Core, DB context
 ├── LibraryApiSqlServer.sln
 ├── Program.cs
 ├── appsettings.json
