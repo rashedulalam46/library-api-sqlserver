@@ -7,9 +7,13 @@ using Microsoft.EntityFrameworkCore;
 namespace Library.Repositories
 {
     public class BookRepository : IBookRepository
-    {
+    {     
         private readonly LibraryDbContext _context;
-        public BookRepository(LibraryDbContext context) => _context = context;
+        public BookRepository(LibraryDbContext context)
+        {
+            _context = context;
+        }
+        
 
         public async Task<IEnumerable<Books>> GetAllAsync() =>
             await _context.Books.ToListAsync();
