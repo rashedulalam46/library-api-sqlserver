@@ -4,10 +4,9 @@ using Library.Domain.Entities;
 using Library.Domain.Enums;
 namespace Library.Application.DTOs
 {
-    public class BookDto
+    // DTO for creating a new book
+    public class BookCreateDto
     {
-        public int Id { get; set; }
-
         [Required]
         [StringLength(200)]
         public string Title { get; set; }
@@ -31,4 +30,25 @@ namespace Library.Application.DTOs
 
         public bool? Active { get; set; }
     }
+
+    // DTO for reading/fetching book data
+    public class BookReadDto
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int? AuthorId { get; set; }
+        public int? CategoryId { get; set; }
+        public int? PublisherId { get; set; }
+        public DateTime? PublishDate { get; set; }
+        public string ISBN { get; set; }
+        public decimal? Price { get; set; }
+        public bool? Active { get; set; }
+
+        // Optionally: if you want to return related names
+        public string AuthorName { get; set; }
+        public string CategoryName { get; set; }
+        public string PublisherName { get; set; }
+    }
+
 }
