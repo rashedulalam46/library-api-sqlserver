@@ -25,6 +25,18 @@ builder.Services.AddScoped<PublishersService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowBlazor",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5247")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 // Configure middleware
@@ -33,6 +45,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("AllowBlazor");  // Add this before UseAuthorization()
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
