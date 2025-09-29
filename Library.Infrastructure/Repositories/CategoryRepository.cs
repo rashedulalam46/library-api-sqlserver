@@ -51,9 +51,9 @@ namespace Library.Infrastructure.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
-        public async Task<bool> ExistsByPublisherIdAsync(int publisherId)
+        public async Task<bool> ExistsByCategoryIdAsync(int categoryId)
         {
-            return await _context.Publishers.AnyAsync(a => a.publisher_id == publisherId);
+            return await _context.Categories.AnyAsync(a => a.category_id == categoryId);
         }
     }
 }

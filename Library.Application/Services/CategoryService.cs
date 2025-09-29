@@ -22,7 +22,7 @@ public class CategoryService
     {
         return _repo.GetByIdAsync(id);
     }
-    public Task<Categories> AddCategoryAsync(Categories category)
+    public async Task<Categories> AddCategoryAsync(Categories category)
     {
         int categoryId;
         do
@@ -33,7 +33,7 @@ public class CategoryService
 
         category.category_id = categoryId;
         category.create_date = DateTime.UtcNow;
-        return _repo.AddAsync(category);
+        return await _repo.AddAsync(category);
     }
     public Task<Categories?> UpdateCategoryAsync(Categories category)
     {
