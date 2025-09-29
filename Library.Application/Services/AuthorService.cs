@@ -6,6 +6,7 @@ namespace Library.Application.Services;
 public class AuthorService
 {
     private readonly IAuthorRepository _repo;
+    private readonly Random _random = new Random();
     public AuthorService(IAuthorRepository repo)
     {
         _repo = repo;
@@ -19,9 +20,19 @@ public class AuthorService
     {
         return _repo.GetByIdAsync(id);
     }
-    public Task<Authors> AddAuthorAsync(Authors author)
+    public async Task<Authors> AddAuthorAsync(Authors author)
     {
-        return _repo.AddAsync(author);
+       
+        int authorId;
+        do
+        {
+            authorId = _random.Next(1000, 9999);
+        }
+        while (await _repo.ExistsByAuthorIdAsync(authorId));
+
+        author.author_id = authorId;
+        author.create_date = DateTime.UtcNow;
+        return await _repo.AddAsync(author);
     }
     public Task<Authors?> UpdateAuthorAsync(Authors author)
     {
