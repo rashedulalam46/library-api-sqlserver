@@ -11,4 +11,5 @@ public interface IBookRepository
     Task<Books> AddAsync(Books book);
     Task<Books?> UpdateAsync(Books book);
     Task<bool> DeleteAsync(int id);
+    Task<bool> ExistsByBookIdAsync(int bookId);
 }

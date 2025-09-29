@@ -7,13 +7,13 @@ using Microsoft.EntityFrameworkCore;
 namespace Library.Repositories
 {
     public class BookRepository : IBookRepository
-    {     
+    {
         private readonly LibraryDbContext _context;
         public BookRepository(LibraryDbContext context)
         {
             _context = context;
         }
-        
+
 
         public async Task<IEnumerable<Books>> GetAllAsync() =>
             await _context.Books.ToListAsync();
@@ -52,6 +52,10 @@ namespace Library.Repositories
             _context.Books.Remove(book);
             await _context.SaveChangesAsync();
             return true;
+        }
+        public async Task<bool> ExistsByBookIdAsync(int bookId)
+        {
+            return await _context.Books.AnyAsync(a => a.book_id == bookId);
         }
     }
 }

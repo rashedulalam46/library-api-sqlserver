@@ -34,6 +34,10 @@ public class Books
 	[Range(0, 10000, ErrorMessage = "Price must be between 0 and 10,000.")]
 	public decimal? price { get; set; }
 
+	[DataType(DataType.Date, ErrorMessage = "Invalid date format.")]
+    public DateTime? create_date { get; set; }
+	
+
 	[Required(ErrorMessage = "Active status is required.")]
 	[DefaultValue(true)]
 	public bool? active { get; set; }

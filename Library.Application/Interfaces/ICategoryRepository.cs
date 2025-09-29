@@ -11,4 +11,5 @@ public interface ICategoryRepository
     Task<Categories> AddAsync(Categories category);
     Task<Categories?> UpdateAsync(Categories category);
     Task<bool> DeleteAsync(int id);
+    Task<bool> ExistsByCategoryIdAsync(int categoryId);
 }

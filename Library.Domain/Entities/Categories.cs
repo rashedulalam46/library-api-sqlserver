@@ -12,6 +12,10 @@ public class Categories
 	[StringLength(100, ErrorMessage = "Category name cannot exceed 100 characters.")]
 	public string category_name { get; set; }
 
+	[DataType(DataType.Date, ErrorMessage = "Invalid date format.")]
+    public DateTime? create_date { get; set; }
+	
+
 	[Required(ErrorMessage = "Active status is required.")]
 	[DefaultValue(true)]
 	public bool active { get; set; }

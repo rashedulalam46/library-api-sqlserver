@@ -6,6 +6,7 @@ namespace Library.Application.Services;
 public class CategoryService
 {
     private readonly ICategoryRepository _repo;
+       private readonly Random _random = new Random();
 
     public CategoryService(ICategoryRepository repo)
     {
@@ -23,6 +24,15 @@ public class CategoryService
     }
     public Task<Categories> AddCategoryAsync(Categories category)
     {
+        int categoryId;
+        do
+        {
+            categoryId = _random.Next(1000, 9999);
+        }
+        while (await _repo.ExistsByCategoryIdAsync(categoryId));
+
+        category.category_id = categoryId;
+        category.create_date = DateTime.UtcNow;
         return _repo.AddAsync(category);
     }
     public Task<Categories?> UpdateCategoryAsync(Categories category)

@@ -6,6 +6,7 @@ namespace Library.Application.Services;
 public class BookService
 {
     private readonly IBookRepository _repo;
+    private readonly Random _random = new Random();
     public BookService(IBookRepository repo)
     {
         _repo = repo;
@@ -19,9 +20,18 @@ public class BookService
     {
         return _repo.GetByIdAsync(id);
     }
-    public Task<Books> AddBookAsync(Books book)
+    public async Task<Books> AddBookAsync(Books book)
     {
-        return _repo.AddAsync(book);
+        int bookId;
+        do
+        {
+            bookId = _random.Next(1000, 9999);
+        }
+        while (await _repo.ExistsByBookIdAsync(bookId));
+
+        book.book_id = bookId;
+        book.publish_date = DateTime.UtcNow;
+        return await _repo.AddAsync(book);
     }
     public Task<Books?> UpdateBookAsync(Books book)
     {

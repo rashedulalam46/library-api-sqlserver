@@ -42,7 +42,7 @@ namespace Library.Infrastructure.Repositories
             existing.publisher_name = publisher.publisher_name;
             existing.address = publisher.address;
             existing.phone = publisher.phone;
-            existing.email = publisher.email;           
+            existing.email = publisher.email;
             existing.active = publisher.active;
 
             await _context.SaveChangesAsync();
@@ -58,6 +58,10 @@ namespace Library.Infrastructure.Repositories
             _context.Publishers.Remove(existing);
             await _context.SaveChangesAsync();
             return true;
+        }
+        public async Task<bool> ExistsByPublisherIdAsync(int publisherId)
+        {
+            return await _context.Publishers.AnyAsync(a => a.publisher_id == publisherId);
         }
     }
 }

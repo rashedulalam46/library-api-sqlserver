@@ -35,11 +35,11 @@ namespace Library.Infrastructure.Repositories
             if (existing == null) return null;
 
             // Manually update each property
-            existing.category_name = category.category_name;            
+            existing.category_name = category.category_name;
             existing.active = category.active;
 
             await _context.SaveChangesAsync();
-            return existing; 
+            return existing;
         }
 
         public async Task<bool> DeleteAsync(int id)
@@ -49,7 +49,11 @@ namespace Library.Infrastructure.Repositories
 
             _context.Categories.Remove(existing);
             await _context.SaveChangesAsync();
-            return true; 
+            return true;
+        }
+        public async Task<bool> ExistsByPublisherIdAsync(int publisherId)
+        {
+            return await _context.Publishers.AnyAsync(a => a.publisher_id == publisherId);
         }
     }
 }
