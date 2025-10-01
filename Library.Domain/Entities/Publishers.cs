@@ -13,9 +13,11 @@ public class Publishers
 	[StringLength(100, ErrorMessage = "Publisher name cannot exceed 100 characters.")]
 	public string publisher_name { get; set; }
 
+	[Required(ErrorMessage = "Publisher address is required.")]
 	[StringLength(250, ErrorMessage = "Address cannot exceed 250 characters.")]
 	public string address { get; set; }
 
+	[Required(ErrorMessage = "Publisher phone number is required.")]
 	[Phone(ErrorMessage = "Invalid phone number format.")]
 	[StringLength(20, ErrorMessage = "Phone number cannot exceed 20 characters.")]
 	public string phone { get; set; }
@@ -25,9 +27,9 @@ public class Publishers
 	public string email { get; set; }
 
 	[DataType(DataType.Date, ErrorMessage = "Invalid date format.")]
-    public DateTime? create_date { get; set; }
+	public DateTime? create_date { get; set; }
 
-	[Required(ErrorMessage = "Active status is required.")]
+	
 	[DefaultValue(true)]
 	public bool active { get; set; }
 }
