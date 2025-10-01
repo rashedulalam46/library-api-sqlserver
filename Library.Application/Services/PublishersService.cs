@@ -29,8 +29,8 @@ public class PublishersService
         }
         while (_repo.ExistsByPublisherIdAsync(publisherId).Result);
         publisher.publisher_id = publisherId;
-        publisher.create_date = DateTime.UtcNow;
-        
+        publisher.create_date = DateTime.UtcNow;       
+
         return _repo.AddAsync(publisher);
     }
     public Task<Publishers?> UpdatePublisherAsync(Publishers publisher)

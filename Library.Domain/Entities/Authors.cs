@@ -13,28 +13,28 @@ public class Authors
 
     [Required(ErrorMessage = "Author name is required.")]
     [StringLength(100, ErrorMessage = "Title cannot exceed 100 characters.")]
-    public string author_name { get; set; }
+    public string? author_name { get; set; }
 
     [Required(ErrorMessage = "Country is required.")]
     [StringLength(2, ErrorMessage = "Country code must be 2 characters.")]
-    public string country { get; set; }
+    public string? country { get; set; }
 
     [Required(ErrorMessage = "Address is required.")]
     [StringLength(250, ErrorMessage = "Address cannot exceed 250 characters.")]
-    public string address { get; set; }
+    public string? address { get; set; }
 
     [Required(ErrorMessage = "Phone number is required.")]
     [StringLength(20, ErrorMessage = "Phone number cannot exceed 20 characters.")]
-    public string phone { get; set; }
+    public string? phone { get; set; }
 
     [StringLength(200)]
     [EmailAddress(ErrorMessage = "Invalid email format.")]
-    public string email { get; set; }
+    public string? email { get; set; }
 
     [DataType(DataType.Date, ErrorMessage = "Invalid date format.")]
     public DateTime? create_date { get; set; }
 
-    [Required(ErrorMessage = "Active status is required.")]
+    
     [DefaultValue(true)]
     public bool active { get; set; }
 }
