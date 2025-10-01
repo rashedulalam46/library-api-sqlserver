@@ -1,4 +1,5 @@
 
+using Library.Application.DTOs;
 using Library.Application.Interfaces;
 using Library.Domain.Entities;
 using Library.Infrastructure.Data;
@@ -14,9 +15,32 @@ namespace Library.Repositories
             _context = context;
         }
 
+        public async Task<IEnumerable<BookReadDto>> GetAllAsync()
+        {
+            var query = from b in _context.Books
+                        join a in _context.Authors
+                            on b.author_id equals a.author_id
+                        join c in _context.Categories
+                            on b.category_id equals c.category_id
+                        join p in _context.Publishers
+                            on b.publisher_id equals p.publisher_id
+                        select new BookReadDto
+                        {
+                            BookId = b.book_id,
+                            Title = b.title,
+                            Description = b.description,
+                            AuthorName = a.author_name,
+                            CategoryName = c.category_name,
+                            PublisherName = p.publisher_name,
+                            ISBN = b.ISBN,
+                            Price = b.price,
+                            Active = b.active,
+                            PublishDate = b.publish_date
+                        };
 
-        public async Task<IEnumerable<Books>> GetAllAsync() =>
-            await _context.Books.ToListAsync();
+            return await query.ToListAsync();
+        }
+
 
         public async Task<Books?> GetByIdAsync(int id) =>
             await _context.Books.FindAsync(id);

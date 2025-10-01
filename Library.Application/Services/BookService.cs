@@ -1,3 +1,4 @@
+using Library.Application.DTOs;
 using Library.Application.Interfaces;
 using Library.Domain.Entities;
 
@@ -12,7 +13,7 @@ public class BookService
         _repo = repo;
     }
 
-    public Task<IEnumerable<Books>> GetBooksAsync()
+    public Task<IEnumerable<BookReadDto>> GetBooksAsync()
     {
         return _repo.GetAllAsync();
     }

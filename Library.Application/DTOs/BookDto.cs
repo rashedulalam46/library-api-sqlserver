@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Library.Domain.Entities;
-using Library.Domain.Enums;
+
 namespace Library.Application.DTOs
 {
     // DTO for creating a new book
@@ -34,7 +34,7 @@ namespace Library.Application.DTOs
     // DTO for reading/fetching book data
     public class BookReadDto
     {
-        public int Id { get; set; }
+        public int BookId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int? AuthorId { get; set; }
@@ -44,6 +44,7 @@ namespace Library.Application.DTOs
         public string ISBN { get; set; }
         public decimal? Price { get; set; }
         public bool? Active { get; set; }
+        public DateTime? CreateDate { get; set; }
 
         // Optionally: if you want to return related names
         public string AuthorName { get; set; }
