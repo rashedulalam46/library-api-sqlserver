@@ -37,7 +37,6 @@ public class Books
 	[DataType(DataType.Date, ErrorMessage = "Invalid date format.")]
     public DateTime? create_date { get; set; }
 	
-
 	[Required(ErrorMessage = "Active status is required.")]
 	[DefaultValue(true)]
 	public bool? active { get; set; }
