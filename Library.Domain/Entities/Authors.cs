@@ -10,17 +10,20 @@ public class Authors
     [Key]
     public int author_id { get; set; }
 
-    [Display(Name = "Author Name", Prompt = "Enter author name")]
+
     [Required(ErrorMessage = "Author name is required.")]
     [StringLength(100)]
     public string author_name { get; set; }
 
+    [Required(ErrorMessage = "Country is required.")]
     [StringLength(2)]
     public string country { get; set; }
 
-    [StringLength(500)]
+    [Required(ErrorMessage = "Address is required.")]
+    [StringLength(250)]
     public string address { get; set; }
 
+    [Required(ErrorMessage = "Phone number is required.")]
     [StringLength(20)]
     public string phone { get; set; }
 
