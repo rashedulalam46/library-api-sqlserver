@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Library.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/categories")]
     public class CategoryController : ControllerBase
     {
         private readonly CategoryService _service;
@@ -15,7 +15,8 @@ namespace Library.API.Controllers
             _service = service;
         }
 
-        // GET: api/category
+
+        // GET: api/categories
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Categories>>> GetAll()
         {
@@ -23,7 +24,7 @@ namespace Library.API.Controllers
             return Ok(categories);
         }
 
-        // GET: api/category/{id}
+        // GET: api/categories/{id}
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Categories>> GetById(int id)
         {
@@ -32,7 +33,7 @@ namespace Library.API.Controllers
             return Ok(category);
         }
 
-        // POST: api/category
+        // POST: api/categories
         [HttpPost]
         public async Task<ActionResult<Categories>> Create([FromBody] Categories category)
         {
@@ -40,7 +41,7 @@ namespace Library.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createdCategory.category_id }, createdCategory);
         }
 
-        // PUT: api/category/{id}
+        // PUT: api/categories/{id}
         [HttpPut("{id:int}")]
         public async Task<ActionResult<Categories>> Update(int id, [FromBody] Categories category)
         {

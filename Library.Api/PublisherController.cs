@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace Library.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    public class PublishersController : ControllerBase
+    [Route("api/[controller]s")]
+    public class PublisherController : ControllerBase
     {
         private readonly PublishersService _service;
 
-        public PublishersController(PublishersService service)
+        public PublisherController(PublishersService service)
         {
             _service = service;
         }

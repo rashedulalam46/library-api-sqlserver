@@ -36,6 +36,7 @@ namespace Library.Infrastructure.Repositories
 
             // Manually update each property
             existing.category_name = category.category_name;
+            existing.description = category.description;
             existing.active = category.active;
 
             await _context.SaveChangesAsync();
