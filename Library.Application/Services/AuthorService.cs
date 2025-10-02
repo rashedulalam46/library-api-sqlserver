@@ -22,7 +22,7 @@ public class AuthorService
     }
     public async Task<Authors> AddAuthorAsync(Authors author)
     {
-       
+
         int authorId;
         do
         {
@@ -32,10 +32,12 @@ public class AuthorService
 
         author.author_id = authorId;
         author.create_date = DateTime.UtcNow;
+        author.country = string.IsNullOrEmpty(author.country) ? null : author.country.ToUpper();
         return await _repo.AddAsync(author);
     }
     public Task<Authors?> UpdateAuthorAsync(Authors author)
     {
+        author.country = string.IsNullOrEmpty(author.country) ? null : author.country.ToUpper();
         return _repo.UpdateAsync(author);
     }
     public Task<bool> DeleteAuthorAsync(int id)

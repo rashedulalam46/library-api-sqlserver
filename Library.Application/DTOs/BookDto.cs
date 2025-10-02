@@ -11,7 +11,7 @@ namespace Library.Application.DTOs
         [StringLength(200)]
         public string Title { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(250)]
         public string Description { get; set; }
 
         public int? AuthorId { get; set; }
