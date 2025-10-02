@@ -5,6 +5,8 @@ namespace Library.Application.Interfaces;
 
 public interface IDropdownRepository
 {
-    // Define methods for dropdown data retrieval, e.g.:
     Task<IEnumerable<DropdownItem>> GetCountryDropdownAsync();
+    Task<IEnumerable<DropdownItem>> GetAuthorDropdownAsync();
+    Task<IEnumerable<DropdownItem>> GetPublisherDropdownAsync();
+    Task<IEnumerable<DropdownItem>> GetCategoryDropdownAsync();
 }

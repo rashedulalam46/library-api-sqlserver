@@ -19,6 +19,30 @@ public class DropdownController : ControllerBase
     public async Task<IActionResult> GetCountries()
     {
         var countries = await _dropdownService.GetCountryDropdownAsync();
-        return Ok(countries); 
+        return Ok(countries);
+    }
+    
+    // GET: api/dropdown/authors
+    [HttpGet("authors")]
+    public async Task<IActionResult> GetAuthors()
+    {
+        var authors = await _dropdownService.GetAuthorDropdownAsync();
+        return Ok(authors);
+    }
+
+    // GET: api/dropdown/publishers
+    [HttpGet("publishers")]
+    public async Task<IActionResult> GetPublishers()
+    {
+        var publishers = await _dropdownService.GetPublisherDropdownAsync();
+        return Ok(publishers);
+    }
+
+    // GET: api/dropdown/categories
+    [HttpGet("categories")]
+    public async Task<IActionResult> GetCategories()
+    {
+        var categories = await _dropdownService.GetCategoryDropdownAsync();
+        return Ok(categories);
     }
 }
