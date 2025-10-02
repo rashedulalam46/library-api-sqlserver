@@ -18,6 +18,7 @@ public class LibraryDbContext : DbContext
     public DbSet<Authors> Authors { get; set; }
     public DbSet<Publishers> Publishers { get; set; }
     public DbSet<Categories> Categories { get; set; }
+    public DbSet<Countries> Countries { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

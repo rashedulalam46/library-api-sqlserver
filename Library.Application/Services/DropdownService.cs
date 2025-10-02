@@ -1,20 +1,23 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Library.Application.DTOs;
+using Library.Application.Interfaces;
 
 namespace Library.Application.Services;
 
 public class DropdownService
 {
-    public DropdownService()
+    private readonly IDropdownRepository _repo;
+       private readonly Random _random = new Random();
+
+    public DropdownService(IDropdownRepository repo)
     {
-        // Constructor logic if needed
+        _repo = repo;
     }
 
-    // Example method to get dropdown items
-    public Task<List<string>> GetDropdownItemsAsync()
+    
+    public async Task<IEnumerable<DropdownItem>> GetCountryDropdownAsync()
     {
-        // Replace with actual data retrieval logic
-        var items = new List<string> { "Item1", "Item2", "Item3" };
-        return Task.FromResult(items);
+        return await _repo.GetCountryDropdownAsync();
     }
 }

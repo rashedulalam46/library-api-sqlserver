@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Library.Domain.Entities;
 
-public class Country
+public class Countries
 {
     [Key]
     public int country_id { get; set; }

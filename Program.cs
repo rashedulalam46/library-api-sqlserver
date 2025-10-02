@@ -21,6 +21,8 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<IPublishersRepository, PublishersRepository>();
 builder.Services.AddScoped<PublishersService>();
+builder.Services.AddScoped<IDropdownRepository, DropdownRepository>();
+builder.Services.AddScoped<DropdownService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
