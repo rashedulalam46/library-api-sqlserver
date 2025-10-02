@@ -5,6 +5,7 @@ namespace Library.Application.Services;
 
 public class AuthorService
 {
+    
     private readonly IAuthorRepository _repo;
     private readonly Random _random = new Random();
     public AuthorService(IAuthorRepository repo)
