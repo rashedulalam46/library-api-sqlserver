@@ -26,8 +26,7 @@ public class Books
 
 	[DataType(DataType.Date, ErrorMessage = "Invalid date format.")]
 	public DateTime? publish_date { get; set; }
-
-	[Required(ErrorMessage = "ISBN is required.")]
+	
 	[StringLength(20, ErrorMessage = "ISBN cannot exceed 20 characters.")]
 	public string? ISBN { get; set; }
 

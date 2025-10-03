@@ -21,7 +21,7 @@ namespace Library.Application.DTOs
         [DataType(DataType.Date)]
         public DateTime? PublishDate { get; set; }
 
-        [Required]
+       
         [StringLength(13, MinimumLength = 10)]
         public string ISBN { get; set; }
 
