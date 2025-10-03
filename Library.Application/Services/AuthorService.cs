@@ -32,7 +32,7 @@ public class AuthorService
         while (await _repo.ExistsByAuthorIdAsync(authorId));
 
         author.author_id = authorId;
-        author.create_date = DateTime.UtcNow;
+        author.create_date = DateTime.UtcNow;        
         author.country = string.IsNullOrEmpty(author.country) ? null : author.country.ToUpper();
         return await _repo.AddAsync(author);
     }
