@@ -26,22 +26,22 @@ public class BookRepository : IBookRepository
                         on b.publisher_id equals p.publisher_id
                     select new BookReadDto
                     {
-                        BookId = b.book_id,
-                        Title = b.title,
-                        Description = b.description,
-                        AuthorId = b.author_id,
-                        CategoryId = b.category_id,
-                        PublisherId = b.publisher_id,
-                        AuthorName = a.author_name,
-                        CategoryName = c.category_name,
-                        PublisherName = p.publisher_name,
-                        ISBN = b.ISBN,
-                        Price = b.price,
-                        Active = b.active,
-                        PublishDate = b.publish_date
+                        book_id = b.book_id,
+                        title = b.title,
+                        description = b.description,
+                        author_id = b.author_id,
+                        category_id = b.category_id,
+                        publisher_id = b.publisher_id,
+                        author_name = a.author_name,
+                        category_name = c.category_name,
+                        publisher_name = p.publisher_name,
+                        isbn = b.ISBN,
+                        price = b.price,
+                        active = b.active,
+                        publish_date = b.publish_date
                     };
 
-        return await query.OrderBy(b => b.Title).ToListAsync();
+        return await query.OrderBy(b => b.title).ToListAsync();
     }
 
 
