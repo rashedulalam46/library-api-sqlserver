@@ -1,7 +1,7 @@
 # Library API (SQL Server)
 
-A .NET Core / .NET 9 Web API for managing a library system, backed by SQL Server.  
-This project is structured with clean architecture (Domain, Application, Infrastructure, API) and supports basic CRUD operations on books, authors, etc.
+A .NET Core / .NET 9 Web API for managing a library system, backed by MS SQL Server.  
+This project is structured with clean architecture (Domain, Application, Infrastructure, API) and supports basic CRUD operations on books, authors, categories, publishers, etc.
 
 ---
 
