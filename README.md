@@ -78,7 +78,7 @@ dotnet run --project Library.Api
 
 The default launch URL might be https://localhost:5001 (or as configured). Use a tool like Postman, curl, or HTTPie to test the endpoints.
 
-🛣️ API Endpoints (Examples)
+## 🛣️ API Endpoints (Examples)
 
 These are sample endpoints — adjust according to actual implementation.
 | Method | URL             | Description             |
@@ -89,7 +89,7 @@ These are sample endpoints — adjust according to actual implementation.
 | PUT    | /api/books/{id} | Update an existing book |
 | DELETE | /api/books/{id} | Delete a book by ID     |
 
-✅ Features & Highlights
+## ✅ Features & Highlights
 
 - Clean / layered architecture (Domain, Application, Infrastructure)
 - Dependency Injection
