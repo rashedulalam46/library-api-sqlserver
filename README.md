@@ -47,15 +47,8 @@ Open appsettings.json or appsettings.Development.json, and set up your Connectio
 ```
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=YOUR_SERVER;Database=LibraryDb;User Id=…;Password=…;"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  "AllowedHosts": "*"
+    "ConString": "Server=YOUR_SERVER;Database=LibraryDb;User Id=…;Password=…;"
+  }
 }
 
 ```
@@ -73,7 +66,7 @@ This will create the database and necessary tables.
 
 ```
 dotnet build
-dotnet run --project Library.Api
+dotnet run
 ```
 
 The default launch URL might be https://localhost:5001 (or as configured). Use a tool like Postman, curl, or HTTPie to test the endpoints.
