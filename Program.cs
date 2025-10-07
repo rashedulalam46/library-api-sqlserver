@@ -48,6 +48,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 // Use CORS policy for Blazor WebAssembly client 
 app.UseCors("AllowBlazor");  // Add this before UseAuthorization()
 
