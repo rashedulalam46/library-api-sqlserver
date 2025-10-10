@@ -10,7 +10,7 @@ namespace Library.Application.DTOs
     {
         [Required]
         [StringLength(200)]
-        public string title { get; set; }
+        public string? title { get; set; }
 
         [StringLength(250)]
         public string? description { get; set; }
