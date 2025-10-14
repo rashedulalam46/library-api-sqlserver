@@ -50,8 +50,18 @@ Open appsettings.json or appsettings.Development.json, and set up your Connectio
     "ConString": "Server=YOUR_SERVER;Database=LibraryDb;User Id=…;Password=…;"
   }
 }
+```
+
+If you are using Docker, then use
 
 ```
+{
+  "ConnectionStrings": {
+    "ConString": "Server=host.docker.internal;Database=LibraryDb;User Id=…;Password=…;"
+  }
+}
+```
+
 **3. Apply migrations / create database**
    
 In the Infrastructure project (or main solution root), run:
