@@ -26,8 +26,9 @@ LibraryApiSqlServer/
 ## ⚙️ Prerequisites
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download) or compatible .NET version  
-- SQL Server instance (local or remote)  
-- (Optional) A tool like **SQL Server Management Studio (SSMS)** for DB inspection  
+- SQL Server instance (local or remote)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) for containerized setup (Optional)
+- A tool like **SQL Server Management Studio (SSMS)** for DB inspection (Optional)
 
 ---
 
