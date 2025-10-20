@@ -20,7 +20,7 @@ builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<IPublishersRepository, PublishersRepository>();
-builder.Services.AddScoped<PublishersService>();
+builder.Services.AddScoped<PublisherService>();
 builder.Services.AddScoped<IDropdownRepository, DropdownRepository>();
 builder.Services.AddScoped<DropdownService>();
 
