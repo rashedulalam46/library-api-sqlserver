@@ -64,8 +64,9 @@ If you are using Docker, then use
 ```
 
 **3. Apply migrations / create database**
-   
-In the Infrastructure project (or main solution root), run:
+
+Run the SQL script located in **Library.Infrastructure/Data/DatabaseScript.sql** to create the database and tables.   
+Alternatively, to create the database and tables using Entity Framework, run the following command in the Infrastructure project (or from the solution root):
 
 ```
 dotnet ef database update
