@@ -1,6 +1,27 @@
 
+-- ================================================
+-- Create Database: Library
+-- ================================================
+CREATE DATABASE Library
+ON 
+PRIMARY (
+    NAME = Library_Data,
+    FILENAME = 'C:\SQLData\Library_Data.mdf',  -- Change path as needed
+    SIZE = 20MB,
+    MAXSIZE = 200MB,
+    FILEGROWTH = 10MB
+)
+LOG ON (
+    NAME = Library_Log,
+    FILENAME = 'C:\SQLData\Library_Log.ldf',  -- Change path as needed
+    SIZE = 10MB,
+    MAXSIZE = 100MB,
+    FILEGROWTH = 5MB
+);
+GO
 
-USE [Library]
+-- Switch context to Library database
+USE Library;
 GO
 /****** Object:  Table [dbo].[Authors]    Script Date: 11/4/2025 9:41:07 PM ******/
 SET ANSI_NULLS ON
